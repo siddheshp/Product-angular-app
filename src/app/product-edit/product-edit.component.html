@@ -1,0 +1,36 @@
+<div>
+    <form [formGroup]="productForm" (ngSubmit)="onFormSubmit(productForm.value)">
+      <input type="number" formControlName="Id" readonly 
+          class="form-control col-sm-3"/>
+      <br/>
+
+      <input type="text" placeholder="Product Name" formControlName="Name" 
+          class="form-control col-sm-3" />
+      <span *ngIf="!productForm.get('Name').valid && productForm.get('Name').touched">
+        Please enter Product Name</span>
+      <br />
+  
+      <input type="text" placeholder="Product Description" 
+        formControlName="Description" class="form-control col-sm-3" />
+      <span *ngIf="!productForm.get('Description').valid && productForm.get('Description').touched">
+        Please enter Product Description</span>
+      <br />
+  
+      <input type="number" placeholder="Product Price" formControlName="Price" 
+        class="form-control col-sm-3" />
+      <span *ngIf="!productForm.get('Price').valid && productForm.get('Price').touched">
+        Please enter Product Price</span>
+      <br />
+  
+      <input type="date" placeholder="Product Created Date" 
+        formControlName="CreatedDate" class="form-control col-sm-3" />
+      <span *ngIf="!productForm.get('CreatedDate').valid && productForm.get('CreatedDate').touched">
+        Please enter Product Created Date</span>
+      <br />
+  
+      <div class="button-row">
+        <button type="submit" [disabled]="!productForm.valid" 
+          class="btn btn-primary">Update Product</button>
+      </div>
+    </form>
+  </div>

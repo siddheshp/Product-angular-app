@@ -1,0 +1,46 @@
+<div>
+  Product List
+</div>
+
+<div>
+  <table class="table-responsive">
+    <thead>
+      <th scope="col" sortable="Id" (sort)="onSort($event)">Product Id</th>
+      <th scope="col" sortable="Name" (sort)="onSort($event)">Name</th>
+      <th scope="col" sortable="Description" (sort)="onSort($event)">Description</th>
+      <th scope="col" sortable="Price" (sort)="onSort($event)">Price</th>
+      <th scope="col" sortable="CreatedDate" (sort)="onSort($event)">Created Date</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" [(ngModel)]='listFilterId'
+          class="form-control"/></td>
+        <td><input type="text" [(ngModel)]='listFilterName'
+          class="form-control"/></td>
+        <td><input type="text" [(ngModel)]='listFilterDescription'
+          class="form-control"/></td>
+        <td><input type="text" [(ngModel)]='listFilterPrice'
+          class="form-control"/></td>
+        <td><input type="text" [(ngModel)]='listFilterCreatedDate'
+          class="form-control"/></td>
+      </tr>
+      <tr *ngFor="let product of filteredProducts">
+        <td>{{product.Id}}</td>
+        <td><a [routerLink]="['/details', product.Id]">
+            {{ product.Name }}
+          </a></td>
+        <td>{{product.Description}}</td>
+        <td>{{product.Price}}</td>
+        <td>{{product.CreatedDate}}</td>
+        <td>
+          <a [routerLink]="['/edit', product.Id]">
+            Edit
+          </a></td>
+        <td>
+          <a href="/products" (click)="deleteProduct(product.Id)">
+            Delete
+          </a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
