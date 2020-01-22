@@ -31,7 +31,7 @@
           </a></td>
         <td>{{product.Description}}</td>
         <td>{{product.Price}}</td>
-        <td>{{product.CreatedDate}}</td>
+        <td>{{product.CreatedDate | date}}</td>
         <td>
           <a [routerLink]="['/edit', product.Id]">
             Edit

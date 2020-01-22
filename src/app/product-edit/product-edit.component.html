@@ -23,7 +23,7 @@
       <br />
   
       <input type="date" placeholder="Product Created Date" 
-        formControlName="CreatedDate" class="form-control col-sm-3" />
+        formControlName="{{CreatedDate | date}}" class="form-control col-sm-3" />
       <span *ngIf="!productForm.get('CreatedDate').valid && productForm.get('CreatedDate').touched">
         Please enter Product Created Date</span>
       <br />

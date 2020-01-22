@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductApiService } from '../product-api.service';
 import { AlertService } from '../alert.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-add',
@@ -14,12 +15,13 @@ export class ProductAddComponent implements OnInit {
   Name: string = '';
   Description: string = '';
   Price: number = null;
-  CreatedDate: Date = new Date();
+  CreatedDate: Date = new Date(this.datePipe.transform(new Date(), 'yyyy-MM-dd'));
 
   constructor(private router: Router,
     private api: ProductApiService,
     private formBuilder: FormBuilder,
-    private alert: AlertService) { }
+    private alert: AlertService,
+    private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.productForm = this.formBuilder.group({

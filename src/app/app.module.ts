@@ -12,6 +12,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { AlertComponent } from './alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdSortableHeaderDirective } from './ngbd-sortable-header.directive';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { NgbdSortableHeaderDirective } from './ngbd-sortable-header.directive';
     FormsModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
   entryComponents: [AlertComponent]
 })

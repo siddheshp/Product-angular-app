@@ -22,7 +22,7 @@ export class ProductEditComponent implements OnInit {
     private route: ActivatedRoute,
     private api: ProductApiService,
     private formBuilder: FormBuilder,
-    private datePipe: DatePipe) { }
+    private datePipe:DatePipe) { }
 
   ngOnInit() {
     this.getProduct(this.route.snapshot.params['id']);
@@ -43,8 +43,8 @@ export class ProductEditComponent implements OnInit {
         Name: data.Name,
         Description: data.Description,
         Price: data.Price,
-        //CreatedDate: new Date(this.datePipe.transform(data.CreatedDate, 'yyyy-MM-dd'))
-        CreatedDate: data.CreatedDate
+        CreatedDate: new Date(this.datePipe.transform(data.CreatedDate, 'yyyy-MM-dd'))
+        //CreatedDate: data.CreatedDate
       });
     });
   }
